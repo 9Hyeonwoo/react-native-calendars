@@ -34,11 +34,12 @@ export default function styleConstructor(theme={}) {
       color: appStyle.textDisabledColor
     },
     dot: {
-      width: 4,
-      height: 4,
+      width: 6,
+      height: 6,
       marginTop: 1,
       borderRadius: 2,
-      opacity: 0
+      opacity: 0,
+      alignSelf: 'right'
     },
     visibleDot: {
       opacity: 1,

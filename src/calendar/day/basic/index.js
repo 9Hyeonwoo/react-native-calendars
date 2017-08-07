@@ -40,6 +40,7 @@ class Day extends Component {
     const dotStyle = [this.style.dot];
 
     let marked = this.props.marked || {};
+    let dotColor = marked.color
     if (marked && marked.constructor === Array && marked.length) {
       marked = {
         marked: true
@@ -48,7 +49,7 @@ class Day extends Component {
     let dot;
     if (marked.marked) {
       dotStyle.push(this.style.visibleDot);
-      dot = (<View style={dotStyle}/>);
+      dot = (<View style={[dotStyle, dotColor && {backgroundColor: dotColor}]}/>);
     } else if (!this.props.markingExists) {
       textStyle.push(this.style.alignedText);
     }
@@ -57,6 +58,9 @@ class Day extends Component {
       containerStyle.push(this.style.selected);
       dotStyle.push(this.style.selectedDot);
       textStyle.push(this.style.selectedText);
+      if (dotColor) {
+        containerStyle.push({ backgroundColor: dotColor })
+      }
     } else if (this.props.state === 'disabled' || marked.disabled) {
       textStyle.push(this.style.disabledText);
     } else if (this.props.state === 'today') {
@@ -64,8 +68,8 @@ class Day extends Component {
     }
     return (
       <TouchableOpacity style={containerStyle} onPress={this.props.onPress}>
-        <Text style={textStyle}>{String(this.props.children)}</Text>
         {dot}
+        <Text style={textStyle}>{String(this.props.children)}</Text>
       </TouchableOpacity>
     );
   }
