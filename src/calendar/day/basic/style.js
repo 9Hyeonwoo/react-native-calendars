@@ -39,7 +39,8 @@ export default function styleConstructor(theme={}) {
       marginTop: 1,
       borderRadius: 2,
       opacity: 0,
-      alignSelf: 'right'
+      position: 'absolute',
+      right: 0
     },
     visibleDot: {
       opacity: 1,

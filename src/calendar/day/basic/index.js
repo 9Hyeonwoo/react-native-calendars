@@ -56,7 +56,6 @@ class Day extends Component {
 
     if (this.props.state === 'selected' || marked.selected) {
       containerStyle.push(this.style.selected);
-      dotStyle.push(this.style.selectedDot);
       textStyle.push(this.style.selectedText);
       if (dotColor) {
         containerStyle.push({ backgroundColor: dotColor })
@@ -64,7 +63,8 @@ class Day extends Component {
     } else if (this.props.state === 'disabled' || marked.disabled) {
       textStyle.push(this.style.disabledText);
     } else if (this.props.state === 'today') {
-      textStyle.push(this.style.todayText);
+      containerStyle.push(this.style.selected);
+      containerStyle.push({ backgroundColor: '#E1DFDA' })
     }
     return (
       <TouchableOpacity style={containerStyle} onPress={this.props.onPress}>
