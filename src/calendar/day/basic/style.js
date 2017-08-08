@@ -37,7 +37,7 @@ export default function styleConstructor(theme={}) {
       width: 6,
       height: 6,
       marginTop: 1,
-      borderRadius: 2,
+      borderRadius: 3,
       opacity: 0,
       position: 'absolute',
       right: 0
